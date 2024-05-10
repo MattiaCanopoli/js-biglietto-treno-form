@@ -51,7 +51,7 @@
                         <div class="mb-3">
                             <label for="age" class="form-label fw-medium">Età</label>
                             <select class="form-select" id="age">
-                                <option selected>Quanti anni hai?</option>
+                                <option selected value=''>Quanti anni hai?</option>
                                 <option value="18-">meno di 18</option>
                                 <option value="18-64">tra 18 e 64</option>
                                 <option value="65+">65 o più</option>
@@ -73,14 +73,19 @@
                 </div>
                 <!-- ****/TRIP DATA ROW*** -->
                 <!-- BUTTONS ROW -->
-                <div class="row">
+                <div class="row mb-4 text-center">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-success fw-medium">Calcola</button>
+                        <button type="submit" class="btn btn-success fw-medium sub-btn">Calcola</button>
                         <button type="reset" class="btn btn-danger fw-medium" id="btn-reset">Reset</button>
                     </div>
                 </div>
                 <!-- BUTTONS ROW -->
             </form>
+            <div class="row fw-medium text-center fs-3">
+                <div class="col-12">
+                    <div id="result"></div>
+                </div>
+            </div>
         </div>
     </main>
     <!-- javascript -->
