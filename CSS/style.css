@@ -1,7 +1,12 @@
 body {
     font-family: "IBM Plex Mono", monospace;
+    color: rgb(196, 196, 196);
 }
 
 .my-text-color {
     color: rgb(196, 196, 196);
+}
+
+.my-height {
+    height: 2.5rem;
 }
