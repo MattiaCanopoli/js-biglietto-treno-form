@@ -1,12 +1,16 @@
 body {
-    font-family: "IBM Plex Mono", monospace;
-    color: rgb(196, 196, 196);
+	font-family: 'IBM Plex Mono', monospace;
+	color: rgb(196, 196, 196);
 }
 
 .my-text-color {
-    color: rgb(196, 196, 196);
+	color: rgb(196, 196, 196);
 }
 
 .my-height {
-    height: 2.5rem;
+	height: 2.5rem;
+}
+
+.error-shadow {
+	box-shadow: red 0 0 8px 8px;
 }

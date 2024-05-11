@@ -28,6 +28,7 @@ const discount18 = 20;
 const discount65 = 40;
 let finalPrice;
 
+
 //-----SUBMIT BTN-----
 
 let result = document.getElementById('result')
@@ -45,6 +46,8 @@ subBtn.addEventListener('click', function (event) {
     //validate age entry. set result to text if age is not defined. print on page
     if (age.value === '') {
         result.innerText = 'Imposta un età'
+        result.classList.add('text-danger')
+        age.classList.add('error-shadow')
     }
     else {
         //check age and calculate final price
@@ -56,6 +59,8 @@ subBtn.addEventListener('click', function (event) {
         }
 
         result.innerText = 'Costo: ' + (Math.ceil((finalPrice)) - 0.1).toFixed(2) + '€'
+        result.classList.remove('text-danger');
+        age.classList.remove('error-shadow');
     }
     //show result
     result.classList.remove('d-none')
@@ -70,24 +75,31 @@ subBtn.addEventListener('click', function (event) {
 
 //-----RESET BTN-----
 
-//set all elements to default values, hide result, ticket preview and preview button
+
 document
     .getElementById('btn-reset')
     .addEventListener('click', function (event) {
         event.preventDefault();
+        //set form elements to default values
         tripRange.value = 1;
         tripLengh.innerText = tripRange.value;
         age.value = '';
         firstName.value = '';
         surname.value = '';
+        //hide elements
         result.classList.add('d-none');
         ticket.classList.add('d-none');
-        printBtn.classList.add('d-none')
+        printBtn.classList.add('d-none');
+        noTicket.classList.add('d-none');
+        //remove validation shadows
+        age.classList.remove('error-shadow');
+        firstName.classList.remove('error-shadow');
+        surname.classList.remove('error-shadow');
+
     })
 
 
 //-----PRINT BTN-----
-
 
 //get ticket preview elements from DOM
 const ticket = document.getElementById('ticket')
@@ -110,7 +122,9 @@ printBtn.addEventListener('click', function () {
     //check firstName and surname values. if any is '', show alert
     if (firstName.value == '' || surname.value == '') {
         noName.innerText = 'Inserisci nome e cognome'
-        noTicket.classList.remove('d-none')
+        noTicket.classList.remove('d-none');
+        firstName.classList.add('error-shadow');
+        surname.classList.add('error-shadow');
     }
 
     //show ticket preview
@@ -121,6 +135,8 @@ printBtn.addEventListener('click', function () {
         dSeat.innerText = seat;
         dPrice.innerText = (Math.ceil((finalPrice)) - 0.1).toFixed(2) + '€'
         ticket.classList.remove('d-none');
-        noTicket.classList.add('d-none')
+        noTicket.classList.add('d-none');
+        firstName.classList.remove('error-shadow');
+        surname.classList.remove('error-shadow');
     }
 })
