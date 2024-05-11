@@ -39,7 +39,7 @@ subBtn.addEventListener('click', function (event) {
     const rangeValue = Number(tripRange.value)
 
     //define default final price w/o discount
-    finalPrice = (Math.ceil((kmPrice * rangeValue)) - 0.1).toFixed(2)
+    finalPrice = kmPrice * rangeValue
 
 
     //validate age entry. set result to text if age is not defined. print on page
@@ -55,7 +55,7 @@ subBtn.addEventListener('click', function (event) {
             finalPrice -= ((kmPrice * rangeValue) * discount65 / 100);
         }
 
-        result.innerText = 'Costo: ' + finalPrice + '€'
+        result.innerText = 'Costo: ' + (Math.ceil((finalPrice)) - 0.1).toFixed(2) + '€'
     }
     //show result
     result.classList.remove('d-none')
@@ -119,7 +119,7 @@ printBtn.addEventListener('click', function () {
         dSurnamename.innerText = surname.value.toUpperCase();
         dWagon.innerText = wagon
         dSeat.innerText = seat;
-        dPrice.innerText = finalPrice + '€'
+        dPrice.innerText = (Math.ceil((finalPrice)) - 0.1).toFixed(2) + '€'
         ticket.classList.remove('d-none');
         noTicket.classList.add('d-none')
     }
