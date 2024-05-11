@@ -119,7 +119,7 @@ printBtn.addEventListener('click', function () {
         dSurnamename.innerText = surname.value.toUpperCase();
         dWagon.innerText = wagon
         dSeat.innerText = seat;
-        // dPrice.innerText = finalPrice
+        // dPrice.innerText = finalPrice //error: finalPrice not defined. esiste solo nella funzione di submit?
         ticket.classList.remove('d-none');
         noTicket.classList.add('d-none')
     }
