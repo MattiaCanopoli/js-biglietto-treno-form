@@ -19,24 +19,28 @@
 </head>
 
 <body class="bg-dark">
-    <main>
-        <div class="container">
-            <div class="row my-4">
-                <h1 class="text-center fw-bold">Calcolatore Biglietto</h1>
-            </div>
+    <div class="container">
+        <!-- *****HEADER***** -->
+        <header class="row my-4">
+            <h1 class="text-center fw-bold">Calcolatore Biglietto</h1>
+        </header>
+        <!-- *****HEADER***** -->
+
+        <main>
+            <!-- ****FORM**** -->
             <form action="" method="get">
                 <!-- ****PERSONAL DATA ROW*** -->
                 <div class="row">
+                    <!-- ***NAME*** -->
                     <div class="col-12 col-md-6">
                         <div class="mb-3">
-                            <!-- ***NAME*** -->
                             <label for="first-name" class="form-label fw-medium">Nome</label>
                             <input type="text" class="form-control" id="first-name" placeholder="Mario">
                         </div>
                     </div>
                     <!-- ***/NAME*** -->
+                    <!-- ***SURNAME*** -->
                     <div class="col-12 col-md-6">
-                        <!-- ***SURNAME*** -->
                         <div class="mb-3">
                             <label for="surname" class="form-label fw-medium">Cognome</label>
                             <input type="text" class="form-control" id="surname" placeholder="Rossi">
@@ -45,8 +49,10 @@
                     <!-- ***/SURNAME*** -->
                 </div>
                 <!-- ****/PERSONAL DATA ROW*** -->
+
                 <!-- ****TRIP DATA ROW*** -->
                 <div class="row mb-3">
+                    <!-- ***AGE*** -->
                     <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <label for="age" class="form-label fw-medium">Età</label>
@@ -58,9 +64,9 @@
                             </select>
                         </div>
                     </div>
-                    <!-- ***/ETA*** -->
+                    <!-- ***/AGE*** -->
+                    <!-- ***KM*** -->
                     <div class="col-12 col-md-6">
-                        <!-- ***KM*** -->
                         <div class="mb-3">
                             <label for="trip-range" class="form-label fw-medium">Km:
                                 <span id="trip-lenght"></span>
@@ -72,16 +78,18 @@
                     <!-- ***/KM*** -->
                 </div>
                 <!-- ****/TRIP DATA ROW*** -->
+
                 <!-- BUTTONS ROW -->
                 <div class="row mb-4 text-center">
                     <div class="col-12">
                         <button type="submit" class="btn btn-success fw-medium sub-btn">Calcola</button>
                         <button type="reset" class="btn btn-danger fw-medium" id="btn-reset">Reset</button>
-
                     </div>
                 </div>
                 <!-- /BUTTONS ROW -->
             </form>
+            <!-- ****/FORM**** -->
+
             <!-- RESULT -->
             <div class="row fw-medium text-center fs-3 mb-3">
                 <div class="col-12">
@@ -89,41 +97,48 @@
                 </div>
             </div>
             <!-- RESULT -->
-            <!-- PRINT BUTTON -->
-            <div class="row fw-medium text-center mb-4">
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary fw-medium print-btn text-white d-none">Anteprima
-                        biglietto</button>
+
+            <!-- TICKET PREVIEW-->
+            <section>
+                <!-- PRINT BUTTON -->
+                <div class="row fw-medium text-center mb-4">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary fw-medium print-btn text-white d-none">Anteprima
+                            biglietto</button>
+                    </div>
                 </div>
-            </div>
-            <!-- PRINT BUTTON -->
-            <!-- TICKET -->
-            <div class="row justify-content-center d-none" id="ticket">
-                <div class="col-auto border border-2 border-end-0 border-primary p-3 fw-bold">
-                    <div>Nome:</div>
-                    <div>Cognome:</div>
-                    <div>Carrozza:</div>
-                    <div>Posto:</div>
-                    <div>Prezzo:</div>
+                <!-- PRINT BUTTON -->
+
+                <!-- TICKET -->
+                <div class="row justify-content-center d-none" id="ticket">
+                    <div class="col-auto border border-2 border-end-0 border-primary p-3 fw-bold">
+                        <div>Nome:</div>
+                        <div>Cognome:</div>
+                        <div>Carrozza:</div>
+                        <div>Posto:</div>
+                        <div>Prezzo:</div>
+                    </div>
+                    <div class="col-auto border border-2 border-start-0 border-primary p-3">
+                        <div id="d-name">Nome</div>
+                        <div id="d-surname">Cognome</div>
+                        <div id="d-wagon">Carrozza</div>
+                        <div id="d-seat">Posto</div>
+                        <div id="d-price">Prezzo</div>
+                    </div>
                 </div>
-                <div class="col-auto border border-2 border-start-0 border-primary p-3">
-                    <div id="d-name">Nome</div>
-                    <div id="d-surname">Cognome</div>
-                    <div id="d-wagon">Carrozza</div>
-                    <div id="d-seat">Posto</div>
-                    <div id="d-price">Prezzo</div>
+                <!-- /TICKET -->
+
+                <!-- NO TICKET -->
+                <div class="row d-none fw-medium text-center fs-5 mt-3" id="no-ticket">
+                    <div class="col-12">
+                        <div id="no-name"></div>
+                    </div>
                 </div>
-            </div>
-            <!-- /TICKET -->
-            <!-- NO TICKET -->
-            <div class="row d-none fw-medium text-center fs-5 mt-3" id="no-ticket">
-                <div class="col-12">
-                    <div id="no-name"></div>
-                </div>
-            </div>
-            <!-- /NO TICKET -->
-        </div>
-    </main>
+                <!-- /NO TICKET -->
+            </section>
+            <!-- /TICKET PREVIEW -->
+        </main>
+    </div>
     <!-- javascript -->
     <script src="main.js"></script>
 </body>
