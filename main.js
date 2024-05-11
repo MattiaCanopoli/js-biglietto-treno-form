@@ -5,8 +5,8 @@
 const age = document.getElementById('age');
 const firstName = document.getElementById('first-name');
 const surname = document.getElementById('surname');
-let tripLengh = document.getElementById('trip-lenght');
-let tripRange = document.getElementById('trip-range');
+const tripLengh = document.getElementById('trip-lenght');
+const tripRange = document.getElementById('trip-range');
 
 
 //-----TRIP LENGHT-----
@@ -26,7 +26,7 @@ tripRange.addEventListener('change', function () {
 const kmPrice = 0.21;
 const discount18 = 20;
 const discount65 = 40;
-
+let finalPrice;
 
 //-----SUBMIT BTN-----
 
@@ -36,10 +36,10 @@ const printBtn = document.querySelector('.print-btn')
 
 subBtn.addEventListener('click', function (event) {
     event.preventDefault()
-    // tripRange = tripRange.value
+    const rangeValue = Number(tripRange.value)
 
     //define default final price w/o discount
-    let finalPrice = kmPrice * Number(tripRange.value);
+    finalPrice = (Math.ceil((kmPrice * rangeValue)) - 0.1).toFixed(2)
 
 
     //validate age entry. set result to text if age is not defined. print on page
@@ -49,13 +49,13 @@ subBtn.addEventListener('click', function (event) {
     else {
         //check age and calculate final price
         if (age.value === '18-') {
-            finalPrice -= ((kmPrice * Number(tripRange.value)) * discount18 / 100); //sostituire Number(tripRange.value) con variabile. non funziona (NaN al secondo utilizzo)
+            finalPrice -= ((kmPrice * rangeValue) * discount18 / 100);
         }
         else if (age.value === '65+') {
-            finalPrice -= ((kmPrice * Number(tripRange.value)) * discount65 / 100);
+            finalPrice -= ((kmPrice * rangeValue) * discount65 / 100);
         }
 
-        result.innerText = 'Costo: ' + (Math.ceil(finalPrice) - 0.1).toFixed(2) + '€'
+        result.innerText = 'Costo: ' + finalPrice + '€'
     }
     //show result
     result.classList.remove('d-none')
@@ -119,7 +119,7 @@ printBtn.addEventListener('click', function () {
         dSurnamename.innerText = surname.value.toUpperCase();
         dWagon.innerText = wagon
         dSeat.innerText = seat;
-        // dPrice.innerText = finalPrice //error: finalPrice not defined. esiste solo nella funzione di submit?
+        dPrice.innerText = finalPrice + '€'
         ticket.classList.remove('d-none');
         noTicket.classList.add('d-none')
     }
