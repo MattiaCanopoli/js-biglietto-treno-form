@@ -2,7 +2,6 @@
 
 //-----FORM VARIABLES-----
 
-
 const age = document.getElementById('age');
 const firstName = document.getElementById('first-name');
 const surname = document.getElementById('surname');
@@ -11,7 +10,6 @@ let tripRange = document.getElementById('trip-range');
 
 
 //-----TRIP LENGHT-----
-
 
 //get value from trip-range and print it to trip-leght
 tripLengh.innerText = tripRange.value;
@@ -24,13 +22,13 @@ tripRange.addEventListener('change', function () {
 
 //-----PRICES VARIABLES-----
 
-
+//define prices and discounts
 const kmPrice = 0.21;
 const discount18 = 20;
 const discount65 = 40;
 
-//-----SUBMIT BTN-----
 
+//-----SUBMIT BTN-----
 
 let result = document.getElementById('result')
 const subBtn = document.querySelector('.sub-btn')
@@ -44,7 +42,7 @@ subBtn.addEventListener('click', function (event) {
     let finalPrice = kmPrice * Number(tripRange.value);
 
 
-    //validate age entry. print alert
+    //validate age entry. set result to text if age is not defined. print on page
     if (age.value === '') {
         result.innerText = 'Imposta un età'
     }
@@ -59,16 +57,20 @@ subBtn.addEventListener('click', function (event) {
 
         result.innerText = 'Costo: ' + (Math.ceil(finalPrice) - 0.1).toFixed(2) + '€'
     }
-
+    //show result
     result.classList.remove('d-none')
+
+    //if age is defined, show preview button 'printBtn'
     if (result.innerText !== 'Imposta un età') {
 
         printBtn.classList.remove('d-none')
     }
 })
 
+
 //-----RESET BTN-----
 
+//set all elements to default values, hide result, ticket preview and preview button
 document
     .getElementById('btn-reset')
     .addEventListener('click', function (event) {
@@ -83,8 +85,11 @@ document
         printBtn.classList.add('d-none')
     })
 
+
 //-----PRINT BTN-----
 
+
+//get ticket preview elements from DOM
 const ticket = document.getElementById('ticket')
 
 const dName = document.getElementById('d-name')
@@ -93,21 +98,22 @@ const dWagon = document.getElementById('d-wagon')
 const dSeat = document.getElementById('d-seat')
 const dPrice = document.getElementById('d-price')
 
-const wagon = Math.floor(Math.random() * 10)
-const seat = Math.floor(Math.random() * 30)
-
 const noName = document.getElementById('no-name')
 const noTicket = document.getElementById('no-ticket')
 
-
-
+//generate random numbers for wagon and seat
+const wagon = Math.floor(Math.random() * 10)
+const seat = Math.floor(Math.random() * 30)
 
 printBtn.addEventListener('click', function () {
 
+    //check firstName and surname values. if any is '', show alert
     if (firstName.value == '' || surname.value == '') {
         noName.innerText = 'Inserisci nome e cognome'
         noTicket.classList.remove('d-none')
     }
+
+    //show ticket preview
     else {
         dName.innerText = firstName.value.toUpperCase();
         dSurnamename.innerText = surname.value.toUpperCase();
