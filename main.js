@@ -34,6 +34,7 @@ const discount65 = 40;
 
 let result = document.getElementById('result')
 const subBtn = document.querySelector('.sub-btn')
+const printBtn = document.querySelector('.print-btn')
 
 subBtn.addEventListener('click', function (event) {
     event.preventDefault()
@@ -60,7 +61,10 @@ subBtn.addEventListener('click', function (event) {
     }
 
     result.classList.remove('d-none')
+    if (result.innerText !== 'Imposta un età') {
 
+        printBtn.classList.remove('d-none')
+    }
 })
 
 //-----RESET BTN-----
@@ -74,5 +78,43 @@ document
         age.value = '';
         firstName.value = '';
         surname.value = '';
-        result.classList.add('d-none')
+        result.classList.add('d-none');
+        ticket.classList.add('d-none');
+        printBtn.classList.add('d-none')
     })
+
+//-----PRINT BTN-----
+
+const ticket = document.getElementById('ticket')
+
+const dName = document.getElementById('d-name')
+const dSurnamename = document.getElementById('d-surname')
+const dWagon = document.getElementById('d-wagon')
+const dSeat = document.getElementById('d-seat')
+const dPrice = document.getElementById('d-price')
+
+const wagon = Math.floor(Math.random() * 10)
+const seat = Math.floor(Math.random() * 30)
+
+const noName = document.getElementById('no-name')
+const noTicket = document.getElementById('no-ticket')
+
+
+
+
+printBtn.addEventListener('click', function () {
+
+    if (firstName.value == '' || surname.value == '') {
+        noName.innerText = 'Inserisci nome e cognome'
+        noTicket.classList.remove('d-none')
+    }
+    else {
+        dName.innerText = firstName.value.toUpperCase();
+        dSurnamename.innerText = surname.value.toUpperCase();
+        dWagon.innerText = wagon
+        dSeat.innerText = seat;
+        // dPrice.innerText = finalPrice
+        ticket.classList.remove('d-none');
+        noTicket.classList.add('d-none')
+    }
+})

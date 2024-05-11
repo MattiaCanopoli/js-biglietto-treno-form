@@ -34,7 +34,7 @@
                             <input type="text" class="form-control" id="first-name" placeholder="Mario">
                         </div>
                     </div>
-                    <!-- ***/NSME*** -->
+                    <!-- ***/NAME*** -->
                     <div class="col-12 col-md-6">
                         <!-- ***SURNAME*** -->
                         <div class="mb-3">
@@ -77,13 +77,47 @@
                     <div class="col-12">
                         <button type="submit" class="btn btn-success fw-medium sub-btn">Calcola</button>
                         <button type="reset" class="btn btn-danger fw-medium" id="btn-reset">Reset</button>
+
                     </div>
                 </div>
-                <!-- BUTTONS ROW -->
+                <!-- /BUTTONS ROW -->
             </form>
-            <div class="row fw-medium text-center fs-3">
+            <!-- RESULT -->
+            <div class="row fw-medium text-center fs-3 mb-3">
                 <div class="col-12">
                     <div id="result"></div>
+                </div>
+            </div>
+            <!-- RESULT -->
+            <!-- PRINT BUTTON -->
+            <div class="row fw-medium text-center mb-4">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary fw-medium print-btn text-white d-none">Anteprima
+                        biglietto</button>
+                </div>
+            </div>
+            <!-- PRINT BUTTON -->
+            <!-- TICKET -->
+            <div class="row justify-content-center d-none" id="ticket">
+                <div class="col-auto border border-2 border-end-0 border-primary p-3 fw-bold">
+                    <div>Nome:</div>
+                    <div>Cognome:</div>
+                    <div>Carrozza:</div>
+                    <div>Posto:</div>
+                    <div>Prezzo:</div>
+                </div>
+                <div class="col-auto border border-2 border-start-0 border-primary p-3">
+                    <div id="d-name">Nome</div>
+                    <div id="d-surname">Cognome</div>
+                    <div id="d-wagon">Carrozza</div>
+                    <div id="d-seat">Posto</div>
+                    <div id="d-price">Prezzo</div>
+                </div>
+            </div>
+            <!-- /TICKET -->
+            <div class="row d-none fw-medium text-center fs-5 mt-3" id="no-ticket">
+                <div class="col-12">
+                    <div id="no-name"></div>
                 </div>
             </div>
         </div>
