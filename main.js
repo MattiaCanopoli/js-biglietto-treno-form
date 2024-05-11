@@ -6,8 +6,8 @@
 const age = document.getElementById('age');
 const firstName = document.getElementById('first-name');
 const surname = document.getElementById('surname');
-const tripLengh = document.getElementById('trip-lenght');
-const tripRange = document.getElementById('trip-range');
+let tripLengh = document.getElementById('trip-lenght');
+let tripRange = document.getElementById('trip-range');
 
 
 //-----TRIP LENGHT-----
@@ -29,7 +29,7 @@ const kmPrice = 0.21;
 const discount18 = 20;
 const discount65 = 40;
 
-//-----SUBMIT-----
+//-----SUBMIT BTN-----
 
 
 let result = document.getElementById('result')
@@ -37,10 +37,11 @@ const subBtn = document.querySelector('.sub-btn')
 
 subBtn.addEventListener('click', function (event) {
     event.preventDefault()
-    // tripRange = Number(tripRange.value)
+    // tripRange = tripRange.value
 
     //define default final price w/o discount
-    let finalPrice = (kmPrice * Number(tripRange.value));
+    let finalPrice = kmPrice * Number(tripRange.value);
+
 
     //validate age entry. print alert
     if (age.value === '') {
@@ -55,10 +56,11 @@ subBtn.addEventListener('click', function (event) {
             finalPrice -= ((kmPrice * Number(tripRange.value)) * discount65 / 100);
         }
 
-        result.innerText = 'Costo: ' + finalPrice.toFixed(2) + '€'
+        result.innerText = 'Costo: ' + (Math.ceil(finalPrice) - 0.1).toFixed(2) + '€'
     }
 
     result.classList.remove('d-none')
+
 })
 
 //-----RESET BTN-----
@@ -73,4 +75,4 @@ document
         firstName.value = '';
         surname.value = '';
         result.classList.add('d-none')
-    });
+    })
